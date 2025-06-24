@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dud2k6o0g1p02"]
+
+[ext_resource type="Shader" uid="uid://b1qwntqbkpgen" path="res://Shaders/GrassStrandMultiple.gdshader" id="1_g6bl6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_g6bl6")
+shader_parameter/pushAwayFromPos = Vector2(2, 1)
+shader_parameter/color_scale = 0.015
+shader_parameter/color_grad_height = -0.455
+shader_parameter/top_color = Vector4(50, 255, 25, 0)
+shader_parameter/bot_color = Vector4(0, 0, 0, 0)
+shader_parameter/interaction_power = 5.0
+shader_parameter/interaction_radius = 2.0
+shader_parameter/objectPositions = PackedVector3Array(0, 0, 0, 0, 0, 0)

@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjy3f3chqeojw"]
+
+[ext_resource type="Script" uid="uid://bdmac8vobclnd" path="res://Scripts/CameraControllerDebugging.gd" id="1_ae30g"]
+[ext_resource type="PackedScene" uid="uid://don87a4imbiku" path="res://Meshes/Terrain.glb" id="3_8yva2"]
+[ext_resource type="Material" uid="uid://dud2k6o0g1p02" path="res://Res/GrassScene.tres" id="4_7wja0"]
+[ext_resource type="ArrayMesh" uid="uid://cecjcl6dhewnd" path="res://Meshes/grass.obj" id="5_ir0wb"]
+[ext_resource type="Script" uid="uid://c3uabvre567n3" path="res://Scripts/MultiMeshGrassInstantiation.gd" id="6_ipcom"]
+[ext_resource type="Script" uid="uid://res00o06nooe" path="res://Scripts/wind_direction.gd" id="7_b7h5d"]
+
+[sub_resource type="Environment" id="Environment_b0xpv"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_rql8i"]
+
+[sub_resource type="Compositor" id="Compositor_8he05"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gukim"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="MultiMesh" id="MultiMesh_b0xpv"]
+transform_format = 1
+mesh = ExtResource("5_ir0wb")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 0.846559, 0.977917, 0.960997)
+current = true
+script = ExtResource("1_ae30g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b0xpv")
+camera_attributes = SubResource("CameraAttributesPractical_rql8i")
+compositor = SubResource("Compositor_8he05")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.4602, 0.768871, 0.443908, 0, -0.5, 0.866025, 0.887815, -0.398545, -0.2301, 0, 0, 0)
+
+[node name="Spin" type="Node3D" parent="."]
+script = ExtResource("7_b7h5d")
+
+[node name="WindDirection" type="Node3D" parent="Spin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spin/WindDirection" groups=["Otus"]]
+mesh = SubResource("SphereMesh_gukim")
+
+[node name="Spin" type="Node3D" parent="Spin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22439, 0, 0)
+script = ExtResource("7_b7h5d")
+
+[node name="WindDirection" type="Node3D" parent="Spin/Spin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spin/Spin/WindDirection" groups=["Otus"]]
+mesh = SubResource("SphereMesh_gukim")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Terrain3" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.450333, -0.26, 0, 0.26, 0.450333, 0, 0, 0, 0.52, 1.94807, 0.527682, 0)
+
+[node name="extends MultiMeshInstance3Dfunc _ready()_# Create the multimesh_multimesh = MultiMesh_new()# Set the format first_multimesh_transform_format = MultiMesh_TRANSFORM_3D# Then resize (otherwise, changing the format is not allowed)_multimesh_instance_count = 10000# Maybe not all of them should be visible at first_multimesh_visible_instance_count = 1000# Set the transform of the instances_for i in multimesh_visible_instance_count_multimesh_set_instance_transform(i, Transform3D(Basis(), Vector3(i * 20, 0, 0)))" type="MultiMeshInstance3D" parent="Node3D/Terrain3" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0, 0, 0)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
+
+[node name="Terrain2" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, -2, 0, 0)
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="Node3D/Terrain2" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0.00792696, -1.14624e-07, 0.0107524)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
+
+[node name="Terrain5" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, 0)
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="Node3D/Terrain5" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0.00792696, -1.14624e-07, 0.0107524)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
+
+[node name="Terrain6" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, -2)
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="Node3D/Terrain6" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0.00792696, -1.14624e-07, 0.0107524)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
+
+[node name="Terrain7" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, -2, 0, -2)
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="Node3D/Terrain7" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0.00792696, -1.14624e-07, 0.0107524)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
+
+[node name="Terrain8" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, -4, 0, -2)
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="Node3D/Terrain8" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0.00792696, -1.14624e-07, 0.0107524)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
+
+[node name="Terrain4" parent="Node3D" instance=ExtResource("3_8yva2")]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, -4, 0, 0)
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="Node3D/Terrain4" node_paths=PackedStringArray("terrain")]
+transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0.00792696, -1.14624e-07, 0.0107524)
+material_override = ExtResource("4_7wja0")
+multimesh = SubResource("MultiMesh_b0xpv")
+script = ExtResource("6_ipcom")
+terrain = NodePath("..")
+shader = ExtResource("4_7wja0")
+ObjectToBeInstantiated = ExtResource("5_ir0wb")
