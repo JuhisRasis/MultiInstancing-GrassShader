@@ -25,12 +25,18 @@ func _ready():
 		ObjectToBeInstantiatedTemporary.size = ObjectToBeInstantiatedTemporary.size
 		multimesh.mesh = ObjectToBeInstantiated
 		meshFaces = ObjectToBeInstantiated.get_faces()
-		meshVertAmount = meshFaces.size()
+		#meshVertAmount = meshFaces.size()
+		var mdtFoliage = MeshDataTool.new() 
+		var m2 = ObjectToBeInstantiated
+		mdtFoliage.create_from_surface(m2, 0)
+		meshVertAmount = mdtFoliage.get_vertex_count()
 		print("Amount of vertexes in foliage mesh: " + str(meshVertAmount))
+		
 		var mdt = MeshDataTool.new() 
 		var m = terrainMesh
 		mdt.create_from_surface(m, 0)
 		var vertexAmount = mdt.get_vertex_count()
+		#print("Amount of vertexes in foliage mesh mdt: " + str(vertexAmount))
 		multimesh.instance_count = vertexAmount
 		multimesh.visible_instance_count = multimesh.instance_count
 
