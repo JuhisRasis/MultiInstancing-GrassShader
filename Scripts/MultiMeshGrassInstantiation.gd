@@ -3,6 +3,7 @@ extends MultiMeshInstance3D
 @export var shader : ShaderMaterial
 @export var ObjectToBeInstantiated : Mesh
 
+var windSwayScale = 0.5
 var meshVertAmount
 var meshFaces
 var globalPos
@@ -14,7 +15,7 @@ var meshSize = 28
 var positionsArray = PackedVector3Array([])
 
 func _ready():
-	for i in get_tree().get_nodes_in_group("Otus"): 
+	for i in get_tree().get_nodes_in_group("Interactable"): 
 		positionsArray.push_back(i.global_position)
 	
 	terrainMesh = terrain.get_child(0).get_mesh()
@@ -41,9 +42,9 @@ func _ready():
 
 func _process(delta: float):
 	t += 0.01
-	RenderingServer.global_shader_parameter_set("swayDirection", Vector2(sin(t), sin(t)))
+	RenderingServer.global_shader_parameter_set("windDirection", Vector2(sin(t* windSwayScale)* windSwayScale, sin(t* windSwayScale)* windSwayScale))
 	var i2 = 0;
-	for i in get_tree().get_nodes_in_group("Otus"):
+	for i in get_tree().get_nodes_in_group("Interactable"):
 		positionsArray[i2] = i.global_position
 		i2 += 1
 	shader.set_shader_parameter("objectPositions", positionsArray)

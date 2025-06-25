@@ -1,15 +1,18 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dud2k6o0g1p02"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dud2k6o0g1p02"]
 
 [ext_resource type="Shader" uid="uid://b1qwntqbkpgen" path="res://Shaders/GrassStrandMultiple.gdshader" id="1_g6bl6"]
+[ext_resource type="Texture2D" uid="uid://cdq841do8mxb1" path="res://Res/5311-v4.jpg" id="2_hivl7"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_g6bl6")
+shader_parameter/windNoiseTexture = ExtResource("2_hivl7")
+shader_parameter/noiseScale = 3.0
 shader_parameter/pushAwayFromPos = Vector2(2, 1)
-shader_parameter/color_scale = 0.015
-shader_parameter/color_grad_height = -0.455
-shader_parameter/top_color = Vector4(50, 255, 25, 0)
-shader_parameter/bot_color = Vector4(0, 0, 0, 0)
-shader_parameter/interaction_power = 5.0
-shader_parameter/interaction_radius = 2.0
+shader_parameter/color_scale = 0.09
+shader_parameter/color_grad_height = -0.635
+shader_parameter/top_color = Vector4(24.715, 75.805, -3.135, 0)
+shader_parameter/bot_color = Vector4(0.1, 5, 1.5, 0)
+shader_parameter/interaction_power = -6.335
+shader_parameter/interaction_radius = 2.115
 shader_parameter/objectPositions = PackedVector3Array(0, 0, 0, 0, 0, 0)

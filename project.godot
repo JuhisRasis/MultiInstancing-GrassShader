@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Something"
+config/name="GrassShader"
 run/main_scene="uid://cjy3f3chqeojw"
 config/features=PackedStringArray("4.4")
 
@@ -24,13 +24,7 @@ import/blender/enabled=false
 
 [global_group]
 
-TaskManager=""
-JsonParser=""
-ItemSpawnerProgressBar=""
-Otus=""
-Persist=""
-Enemy=""
-Ally=""
+Interactable=""
 
 [input]
 
@@ -92,11 +86,11 @@ ms5Down={
 
 [shader_globals]
 
-swayDirection={
-"type": "vec2",
-"value": Vector2(1, 2)
-}
 InteractableObjects={
 "type": "sampler2DArray",
 "value": "res://new_texture_2d_array.tres"
+}
+windDirection={
+"type": "vec2",
+"value": Vector2(0.2, 0.1)
 }

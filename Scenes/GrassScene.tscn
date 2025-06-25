@@ -42,7 +42,7 @@ script = ExtResource("7_b7h5d")
 [node name="WindDirection" type="Node3D" parent="Spin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spin/WindDirection" groups=["Otus"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spin/WindDirection" groups=["Interactable"]]
 mesh = SubResource("SphereMesh_gukim")
 
 [node name="Spin" type="Node3D" parent="Spin"]
@@ -52,13 +52,13 @@ script = ExtResource("7_b7h5d")
 [node name="WindDirection" type="Node3D" parent="Spin/Spin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spin/Spin/WindDirection" groups=["Otus"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Spin/Spin/WindDirection" groups=["Interactable"]]
 mesh = SubResource("SphereMesh_gukim")
 
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Terrain3" parent="Node3D" instance=ExtResource("3_8yva2")]
-transform = Transform3D(0.450333, -0.26, 0, 0.26, 0.450333, 0, 0, 0, 0.52, 1.94807, 0.527682, 0)
+transform = Transform3D(0.450333, -0.26, 0, 0.26, 0.450333, 0, 0, 0, 0.52, 1.93525, 0.527682, 0)
 
 [node name="extends MultiMeshInstance3Dfunc _ready()_# Create the multimesh_multimesh = MultiMesh_new()# Set the format first_multimesh_transform_format = MultiMesh_TRANSFORM_3D# Then resize (otherwise, changing the format is not allowed)_multimesh_instance_count = 10000# Maybe not all of them should be visible at first_multimesh_visible_instance_count = 1000# Set the transform of the instances_for i in multimesh_visible_instance_count_multimesh_set_instance_transform(i, Transform3D(Basis(), Vector3(i * 20, 0, 0)))" type="MultiMeshInstance3D" parent="Node3D/Terrain3" node_paths=PackedStringArray("terrain")]
 transform = Transform3D(1.92308, 0, 0, 0, 1.92308, 0, 0, 0, 1.92308, 0, 0, 0)
