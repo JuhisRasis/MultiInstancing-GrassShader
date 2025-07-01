@@ -37,7 +37,7 @@ func _ready():
 		mdt.create_from_surface(m, 0)
 		var vertexAmount = mdt.get_vertex_count()
 		multimesh.instance_count = vertexAmount
-		print("Amount of vertexes in instantiated foliage: " + str(vertexAmount))
+		#print("Amount of vertexes in instantiated foliage: " + str(vertexAmount))
 
 		#multimesh.visible_instance_count = multimesh.instance_count
 
