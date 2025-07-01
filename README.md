@@ -1,6 +1,6 @@
 # Godot MultiInstancing \& GrassShader
 
-A demo scene displaying both multi-instancing and grass shader. Move camera with WASD and rotate camera by holding down right mouse button.
+A demo scene displaying both multi-instancing and grass shader. Move camera with WASD and rotate camera whilst holding down right mouse button.
 
 
 Features of the multi-instancing:
