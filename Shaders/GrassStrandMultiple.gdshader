@@ -23,7 +23,7 @@ render_mode cull_disabled;
 
 //Change amount of max interactable objects
 //Change both values
-uniform vec3 objectPositions[2]; 	//Read-Only 
+uniform vec3 objectPositions[2]; 	//Read-Only
 varying vec3 _objectPositions[2];	//
 void vertex() {
 
@@ -49,17 +49,17 @@ void vertex() {
 	vec4 viewPosition = VIEW_MATRIX * worldPosition;
 	vec4 projectedPosition = PROJECTION_MATRIX * viewPosition; //either orthographic or perspective
 	vec4 gl_Position = projectedPosition;
-	
+
 	tex_position = gl_Position.xz / 2.0 + 0.5;
 	float height = texture(windNoiseTexture, tex_position + TIME * noiseTextureScrollSpeedMultiplier).x -0.5;
 	//VERTEX = 1. + VERTEX.y * height * noiseScale;
-	
+
 	VERTEX = vec3(localPosition.x + sin(TIME)* _windDirection.x * localPosition.y, VERTEX.y, localPosition.z * _windDirection.y  * localPosition.y);
 	VERTEX = vec3(VERTEX.x + VERTEX.y * height * noiseScale,VERTEX.y,VERTEX.z);
 
 	// Transform the direction vector from world space back to model space
 	vert = vec3(localPosition.x,localPosition.y,localPosition.z);
-	
+
 	//ROTATE FOLIAGE TOWARDS CAMERA
 	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
 	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));

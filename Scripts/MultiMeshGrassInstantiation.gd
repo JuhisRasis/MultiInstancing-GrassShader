@@ -7,7 +7,6 @@ var windSwayScale = 0.5
 var meshVertAmount
 var meshFaces
 var globalPos
-var ObjectToBeInstantiatedTemporary = BoxMesh.new()
 var multimesh_instance = MultiMeshInstance3D.new()
 var t = 0
 var terrainMesh : Mesh
@@ -17,28 +16,30 @@ var positionsArray = PackedVector3Array([])
 func _ready():
 	for i in get_tree().get_nodes_in_group("Interactable"): 
 		positionsArray.push_back(i.global_position)
-	
 	terrainMesh = terrain.get_child(0).get_mesh()
+	
 	if(terrainMesh!= null && terrain!= null && ObjectToBeInstantiated != null):
 		multimesh = MultiMesh.new()
 		multimesh.transform_format = MultiMesh.TRANSFORM_3D
-		ObjectToBeInstantiatedTemporary.size = ObjectToBeInstantiatedTemporary.size
 		multimesh.mesh = ObjectToBeInstantiated
 		meshFaces = ObjectToBeInstantiated.get_faces()
-		#meshVertAmount = meshFaces.size()
-		var mdtFoliage = MeshDataTool.new() 
-		var m2 = ObjectToBeInstantiated
-		mdtFoliage.create_from_surface(m2, 0)
-		meshVertAmount = mdtFoliage.get_vertex_count()
-		print("Amount of vertexes in foliage mesh: " + str(meshVertAmount))
+		
+		#Debuggin: vertex amount
+		
+		#var mdtFoliage = MeshDataTool.new() 
+		#var m2 = ObjectToBeInstantiated
+		#mdtFoliage.create_from_surface(m2, 0)
+		#meshVertAmount = mdtFoliage.get_vertex_count()
+		#print("Amount of vertexes in foliage mesh: " + str(meshVertAmount))
 		
 		var mdt = MeshDataTool.new() 
 		var m = terrainMesh
 		mdt.create_from_surface(m, 0)
 		var vertexAmount = mdt.get_vertex_count()
-		#print("Amount of vertexes in foliage mesh mdt: " + str(vertexAmount))
 		multimesh.instance_count = vertexAmount
-		multimesh.visible_instance_count = multimesh.instance_count
+		print("Amount of vertexes in instantiated foliage: " + str(vertexAmount))
+
+		#multimesh.visible_instance_count = multimesh.instance_count
 
 		if(multimesh.mesh != null):
 			for i in multimesh.instance_count:
