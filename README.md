@@ -1,8 +1,20 @@
-# Godot Behaviour Tree
-Behaviour Tree framework for Godot coded in GDScript.
+# Godot MultiInstancing \& GrassShader
 
-A tutorial related to this code is here: [Godot Behaviour Tree](https://gdscript.com/godot-behaviour-tree)
+GrassScene is a demo scene displaying both multi-instancing and grass shader.
 
-When the project is "Played", the main scene is the Test scene that runs through the tests of the available BT Nodes displaying results visually in a list.
 
-The BehaviourTree Scene is just to contain all of the available BT Nodes. These appear as Nodes in the Editor (because they are named classes with Icons) that may be added to your Behaviour Tree to build it out with the Nodes and develop your own Leaf Nodes to suit your application/game.
+
+Features of the multi-instancing:
+
+* instantiates meshes batching them together.
+* instantiates meshes on given terrain at each vertex
+
+
+
+Features of the shader:
+
+* Basic coloring without texture.
+* Interactable by multiple objects simultaneously. Interactable objects need to be passed to the grass shader. Shader need to be updated based on expected maximum expected interactable objects before run time.
+* Wind sway with given direction
+* Wind sway patterns with noise texture
+* Rotates meshes towards camera view. Expecting billboard meshes.
