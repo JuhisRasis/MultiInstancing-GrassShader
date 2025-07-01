@@ -86,10 +86,6 @@ ms5Down={
 
 [shader_globals]
 
-InteractableObjects={
-"type": "sampler2DArray",
-"value": "res://new_texture_2d_array.tres"
-}
 windDirection={
 "type": "vec2",
 "value": Vector2(0.2, 0.1)

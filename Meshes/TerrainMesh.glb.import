@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxndyhf7fo6xh"
-path="res://.godot/imported/BillBoard2.glb-fce63376c4f754cbce5560a8f8afdd7d.scn"
+uid="uid://don87a4imbiku"
+path="res://.godot/imported/TerrainMesh.glb-dd4164513a8974c7842fd0c8e5ae688c.scn"
 
 [deps]
 
-source_file="res://Meshes/BillBoard2.glb"
-dest_files=["res://.godot/imported/BillBoard2.glb-fce63376c4f754cbce5560a8f8afdd7d.scn"]
+source_file="res://Meshes/TerrainMesh.glb"
+dest_files=["res://.godot/imported/TerrainMesh.glb-dd4164513a8974c7842fd0c8e5ae688c.scn"]
 
 [params]
 

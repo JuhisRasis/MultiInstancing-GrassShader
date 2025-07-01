@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dud2k6o0g1p02"]
 
 [ext_resource type="Shader" uid="uid://b1qwntqbkpgen" path="res://Shaders/GrassStrandMultiple.gdshader" id="1_g6bl6"]
-[ext_resource type="Texture2D" uid="uid://cdq841do8mxb1" path="res://Res/5311-v4.jpg" id="2_hivl7"]
+[ext_resource type="Texture2D" uid="uid://cdq841do8mxb1" path="res://Res/GrassSwayNoise.jpg" id="2_hivl7"]
 
 [resource]
 render_priority = 0

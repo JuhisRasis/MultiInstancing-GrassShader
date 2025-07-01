@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://846gt4328vml"]
 
-[ext_resource type="PackedScene" uid="uid://bxndyhf7fo6xh" path="res://Meshes/BillBoard2.glb" id="1_0rlul"]
+[ext_resource type="PackedScene" uid="uid://bxndyhf7fo6xh" path="res://Meshes/GrassBillboardMesh.glb" id="1_0rlul"]
 
 [node name="BillBoard2" instance=ExtResource("1_0rlul")]

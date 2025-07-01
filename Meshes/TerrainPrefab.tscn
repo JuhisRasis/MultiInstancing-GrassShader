@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b688s7ge561ns"]
+
+[ext_resource type="PackedScene" uid="uid://don87a4imbiku" path="res://Meshes/TerrainMesh.glb" id="1_0u6kl"]
+[ext_resource type="Material" uid="uid://rg6k84dtuy1v" path="res://Materials/GrassGround.tres" id="2_avahw"]
+
+[node name="Terrain" instance=ExtResource("1_0u6kl")]
+
+[node name="Plane" parent="." index="0"]
+material_override = ExtResource("2_avahw")
