@@ -18,3 +18,8 @@ Features of the shader:
 * Wind sway with given direction
 * Wind sway patterns with noise texture
 * Rotates meshes towards camera view. Expecting billboard meshes.
+
+
+
+!\[GrassDemo](grassdemo.png)
+
