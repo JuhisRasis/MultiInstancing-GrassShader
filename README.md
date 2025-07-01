@@ -21,5 +21,5 @@ Features of the shader:
 
 
 
-!\[GrassDemo](/MultiInstancing-GrassShader/tree/main/grassdemo.png)
+!\[GrassDemo](https://github.com/JuhisRasis/MultiInstancing-GrassShader/tree/maingrassdemo.png)
 
