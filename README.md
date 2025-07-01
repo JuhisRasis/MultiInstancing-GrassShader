@@ -1,7 +1,6 @@
 # Godot MultiInstancing \& GrassShader
 
-GrassScene is a demo scene displaying both multi-instancing and grass shader.
-
+A demo scene displaying both multi-instancing and grass shader. Move camera with WASD and rotate camera by holding down right mouse button.
 
 
 Features of the multi-instancing:
@@ -18,7 +17,6 @@ Features of the shader:
 * Wind sway with given direction
 * Wind sway patterns with noise texture
 * Rotates meshes towards camera view. Expecting billboard meshes.
-
 
 
 <img src="./grassdemo.jpg">

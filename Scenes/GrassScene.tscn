@@ -71,7 +71,7 @@ ObjectToBeInstantiated = ExtResource("5_ir0wb")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, 0)
 
 [node name="multimesh" type="MultiMeshInstance3D" parent="Terrain2" node_paths=PackedStringArray("terrain")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0272329, 0.0135267, -0.0116296)
 material_override = ExtResource("4_7wja0")
 multimesh = SubResource("MultiMesh_b0xpv")
 script = ExtResource("6_ipcom")
