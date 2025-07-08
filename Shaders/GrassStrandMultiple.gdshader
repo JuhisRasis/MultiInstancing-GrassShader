@@ -51,7 +51,8 @@ void vertex() {
 	vec4 gl_Position = projectedPosition;
 
 	tex_position = gl_Position.xz / 2.0 + 0.5;
-	float height = texture(windNoiseTexture, tex_position + TIME * noiseTextureScrollSpeedMultiplier).x -0.5;
+	vec2 tex_positionLocal = worldPosition.xz / 2.0 + 0.5;
+	float height = texture(windNoiseTexture, tex_positionLocal + TIME * noiseTextureScrollSpeedMultiplier).x -0.5;
 	//VERTEX = 1. + VERTEX.y * height * noiseScale;
 
 	VERTEX = vec3(localPosition.x + sin(TIME)* _windDirection.x * localPosition.y, VERTEX.y, localPosition.z * _windDirection.y  * localPosition.y);
